@@ -36,7 +36,9 @@ ERRORS_MESSAGES = {
                            "'http' or 'https' (%s).")
 }
 
-HTTP_POOLS = urllib3.PoolManager()
+# TODO(mwfarb): remove debug here at revproxy/views.py
+#HTTP_POOLS = urllib3.PoolManager()
+HTTP_POOLS = urllib3.PoolManager(cert_reqs='CERT_NONE')
 
 
 class ProxyView(View):
